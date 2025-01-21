@@ -12,7 +12,7 @@ const JobCard = (props: any) => {
           <div>
             <div className="font-semibold">{props.jobTitle}</div>
             <div className="text-xs text-mine-shaft-300">
-              {props.company} &#x2022; {props.applicants} Applicants
+              {props.company} &bull; {props.applicants} Applicants
             </div>
           </div>
         </div>
