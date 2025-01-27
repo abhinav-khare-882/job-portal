@@ -3,7 +3,7 @@ import { IconBriefcase, IconMapPin } from "@tabler/icons-react";
 import ExpCard from "./ExpCard";
 import CertiCard from "./CertiCard";
 
-const Profile = () => {
+const Profile = (props: any) => {
   return (
     <div className="w-2/3">
       <div className="relative">
@@ -16,60 +16,58 @@ const Profile = () => {
       </div>
       <div className="px-3 mt-16">
         <div className="text-3xl font-semibold flex justify-between">
-          Jarrod Wood{" "}
+          {props.name}
           <Button color="brightSun.4" variant="light">
             Message
           </Button>
         </div>
         <div className="text-xl flex gap-1 items-center">
           <IconBriefcase stroke={1.5} className="h-5 w-5" />
-          Software Engineer &bull; Google
+          {props.role} &bull; {props.company}
         </div>
         <div className="flex gap-1 text-lg text-mine-shaft-300 items-center">
           <IconMapPin stroke={1.5} className="h-5 w-5" />
-          New York, United States
+          {props.location}
         </div>
       </div>
       <Divider mx="xs" my="xl" />
       <div className="px-3">
         <div className="text-2xl font-semibold mb-3">About</div>
         <div className="text-sm text-mine-shaft-300 text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas harum
-          perferendis consequuntur dolorem molestiae fuga eos vitae molestias
-          eveniet accusamus illum placeat pariatur iusto explicabo, numquam quia
-          facere minus enim corrupti, provident earum. Sapiente, nisi. Lorem
-          ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis,
-          adipisci! Molestias eveniet dolore aperiam earum consequatur numquam
-          quaerat voluptates autem?
+          {props.about}
         </div>
       </div>
       <Divider mx="xs" my="xl" />
       <div className="px-3">
         <div className="text-2xl font-semibold mb-3">Skills</div>
         <div className="flex flex-wrap gap-2">
-          <div className="bg-bright-sun-300 text-sm font-medium bg-opacity-15 rounded-3xl text-bright-sun-400 px-3 py-1">
-            React
-          </div>
-          <div className="bg-bright-sun-300 text-sm font-medium bg-opacity-15 rounded-3xl text-bright-sun-400 px-3 py-1">
-            React
-          </div>
-          <div className="bg-bright-sun-300 text-sm font-medium bg-opacity-15 rounded-3xl text-bright-sun-400 px-3 py-1">
-            React
-          </div>
-          <div className="bg-bright-sun-300 text-sm font-medium bg-opacity-15 rounded-3xl text-bright-sun-400 px-3 py-1">
-            React
-          </div>
+          {props.skills.map((skill: any, index: any) => (
+            <div
+              key={index}
+              className="bg-bright-sun-300 text-sm font-medium bg-opacity-15 rounded-3xl text-bright-sun-400 px-3 py-1"
+            >
+              {skill}
+            </div>
+          ))}
         </div>
       </div>
       <Divider mx="xs" my="xl" />
       <div className="px-3">
         <div className="text-2xl font-semibold mb-5">Experience</div>
-        <ExpCard />
+        <div className="flex flex-col gap-8">
+          {props.experience.map((exp: any, index: any) => (
+            <ExpCard key={index} {...exp} />
+          ))}
+        </div>
       </div>
       <Divider mx="xs" my="xl" />
       <div className="px-3">
         <div className="text-2xl font-semibold mb-5">Certifications</div>
-        <CertiCard />
+        <div className="flex flex-col gap-8">
+          {props.certifications.map((certi: any, index: any) => (
+            <CertiCard key={index} {...certi} />
+          ))}
+        </div>
       </div>
     </div>
   );

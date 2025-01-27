@@ -4,6 +4,8 @@ import Talents from "../FindTalent/Talents";
 import { Link } from "react-router-dom";
 import { IconArrowLeft } from "@tabler/icons-react";
 import Profile from "../TalentProfile/Profile";
+import { profile } from "../Data/TalentData";
+import RecommendTalent from "../TalentProfile/RecommendTalent";
 
 const TalentProfilePage = () => {
   return (
@@ -21,7 +23,8 @@ const TalentProfilePage = () => {
       </Link>
 
       <div className="flex gap-5">
-        <Profile />
+        <Profile {...profile} />
+        <RecommendTalent />
       </div>
     </div>
   );
