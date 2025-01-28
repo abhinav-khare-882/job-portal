@@ -4,7 +4,7 @@ const NavLinks = () => {
   const links = [
     { name: "Find Jobs", url: "find-jobs" },
     { name: "Find Talent", url: "find-talent" },
-    { name: "Upload Job", url: "upload-job" },
+    { name: "Post Job", url: "post-job" },
     { name: "About us", url: "about" },
   ];
 
@@ -14,7 +14,7 @@ const NavLinks = () => {
       {links.map((link, index) => (
         <div
           className={`${
-            location.pathname == "/" + link.url
+            location.pathname === "/" + link.url
               ? "border-bright-sun-400 text-bright-sun-400"
               : "border-transparent"
           } border-t-[3px] h-full flex items-center`}

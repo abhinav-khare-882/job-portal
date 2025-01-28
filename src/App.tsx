@@ -1,8 +1,9 @@
 import "./App.css";
 // import './index';
-import { createTheme, MantineProvider } from "@mantine/core";
+import { createTheme, Divider, MantineProvider } from "@mantine/core";
 import "@mantine/carousel/styles.css";
 import "@mantine/core/styles.css";
+import "@mantine/tiptap/styles.css";
 import HomePage from "./Pages/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FindJobs from "./Pages/FindJobs";
@@ -10,11 +11,15 @@ import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import FindTalentPage from "./Pages/FindTalentPage";
 import TalentProfilePage from "./Pages/TalentProfilePage";
+import PostJobPage from "./Pages/PostJobPage";
 
 function App() {
   const theme = createTheme({
+    focusRing: "never",
+    primaryColor: "brightSun",
+    primaryShade: 4,
     colors: {
-      "bright-sun": [
+      brightSun: [
         "#fffbeb",
         "#fff3c6",
         "#ffe588",
@@ -27,7 +32,7 @@ function App() {
         "#7a330d",
         "#461902",
       ],
-      "mine-shaft": [
+      mineShaft: [
         "#f6f6f6",
         "#e7e7e7",
         "#d1d1d1",
@@ -47,9 +52,11 @@ function App() {
     <MantineProvider defaultColorScheme="dark" theme={theme}>
       <BrowserRouter>
         <Header />
+        <Divider size="xs" mx="md" />
         <Routes>
           <Route path="/find-jobs" element={<FindJobs />} />
           <Route path="/find-talent" element={<FindTalentPage />} />
+          <Route path="/post-job" element={<PostJobPage />} />
           <Route path="/talent-profile" element={<TalentProfilePage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
