@@ -15,7 +15,6 @@ const TalentProfilePage = () => {
           leftSection={<IconArrowLeft size={20} />}
           color="brightSun.4"
           variant="light"
-          fullWidth
         >
           Back
         </Button>
