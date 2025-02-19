@@ -7,7 +7,6 @@ const CompanyEmployee = () => {
       {talents.map(
         (talent, index) => index < 6 && <TalentCard key={index} {...talent} />
       )}
-      <TalentCard />
     </div>
   );
 };
